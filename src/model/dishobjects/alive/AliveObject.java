@@ -9,11 +9,8 @@ package model.dishobjects.alive;
 import Listeners.DishObjectGrownListener;
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 import lml.FactoryGiver;
 import lml.GameMath;
 import model.Dish;
@@ -34,16 +31,6 @@ public abstract class AliveObject extends DishObject {
      * Точка, до которой движется бактерия
      */
     protected Point destination;
-    
-    /**
-     * Съеденные объекта
-     */
-    private List <DishObject> eaten = new ArrayList<DishObject>();
-    
-    /**
-     * Количество съеденных объектов
-     */
-    private Integer eatenCount = 0;
     
     /**
      * Слушатели события роста массы
@@ -92,10 +79,6 @@ public abstract class AliveObject extends DishObject {
      * @return признак успешного поедания
      */
     private boolean eat(DishObject obj) {        
-        // Съесть
-        eaten.add(obj);
-        
-        eatenCount += 1;
         
         // Удалить съеденный объект с поля
         Dish.instance.removeObject(obj);
