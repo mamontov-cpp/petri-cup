@@ -30,6 +30,7 @@ public class PlayerController implements Controller {
 
     @Override
     public void throwBolid(Point p, Bacterium bacterium) {
-        bacterium.throwBolid(p);
+        // FIXME: Не даем стрелять себе в ногу - отключили болиды.
+        // bacterium.throwBolid(p);
     }
 }

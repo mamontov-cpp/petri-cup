@@ -25,8 +25,10 @@ public class AIController implements Controller {
     
     /**
      * Вероятность выплёвывания болида
+     * 
+     * FIXME: Пока отключено  - болиды работают довольно плохо.
      */
-    private final double THROW_BOLID_PROBABILITY = 0.0005;
+    private final double THROW_BOLID_PROBABILITY = 0.0;
     
     /**
      * Минимальная дистанция плевка болида

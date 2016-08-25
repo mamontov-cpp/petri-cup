@@ -18,22 +18,12 @@ import model.dishobjects.alive.Bacterium;
  * Модель игры
  */
 public class GameModel  {
-    
-    /**
-     * Начальное количество света
-     */
-    final int INITIAL_LIGHT_COUNT = 20;
-    
+        
     /**
      * Начальное количество агара
      */
     final int INITIAL_AGAR_COUNT = 20;
-    
-    /**
-     * Начальное количество воды
-     */
-    final int INITIAL_WATER_COUNT = 20;
-    
+        
     /**
      * Начальное количество бактерий
      */
@@ -81,10 +71,6 @@ public class GameModel  {
         
         player = FactoryGiver.getFactory().getAliveObjectFactory().createBacterium();
         
-        for (int i = 0; i < INITIAL_LIGHT_COUNT; ++i)
-            FactoryGiver.getFactory().getPrimitiveObjectFactory().createLight();
-        for (int i = 0; i < INITIAL_WATER_COUNT; ++i)
-            FactoryGiver.getFactory().getPrimitiveObjectFactory().createWater();
         for (int i = 0; i < INITIAL_AGAR_COUNT; ++i)
             FactoryGiver.getFactory().getPrimitiveObjectFactory().createAgar();
         for (int i = 0; i < INITIAL_BACTERIUM_COUNT; ++i)
@@ -110,15 +96,9 @@ public class GameModel  {
         FactoryGiver.getFactory().getCollisionManager().checkCollision();
         
         // Создание новых объектов
-        if (Math.random() < LIGHT_PROBABILITY) { 
-            FactoryGiver.getFactory().getPrimitiveObjectFactory().createLight(); 
-        } 
         if (Math.random() < AGAR_PROBABILITY) { 
             FactoryGiver.getFactory().getPrimitiveObjectFactory().createAgar(); 
         } 
-        if (Math.random() < WATER_PROBABILITY) { 
-            FactoryGiver.getFactory().getPrimitiveObjectFactory().createWater(); 
-        }
         if (Math.random() < BACTERIUM_PROBABILITY) {
             FactoryGiver.getFactory().getAliveObjectFactory().createBacterium();
         }

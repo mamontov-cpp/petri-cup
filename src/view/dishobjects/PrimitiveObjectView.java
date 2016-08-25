@@ -27,14 +27,6 @@ public class PrimitiveObjectView extends DishObjectView {
     private static Color getObjectColor(DishObject obj) {
         if (obj instanceof Agar)
             return Color.GRAY;
-        if (obj instanceof Water)
-            return Color.BLUE;
-        if (obj instanceof Oxygen)
-            return Color.WHITE;
-        if (obj instanceof CarbonDioxyde)
-            return Color.BLACK;
-        if (obj instanceof Light)
-            return Color.YELLOW;
         
         return null;
     }
