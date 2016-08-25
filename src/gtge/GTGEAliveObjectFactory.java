@@ -9,7 +9,6 @@ import model.Dish;
 import model.dishobjects.AliveObjectFactory;
 import model.dishobjects.alive.Bacterium;
 import model.dishobjects.alive.Bolid;
-import specialization.Specialization;
 
 /**
  * Фабрика живых объектов GTGE
@@ -17,10 +16,9 @@ import specialization.Specialization;
 public class GTGEAliveObjectFactory extends AliveObjectFactory {
 
     @Override
-    public Bacterium createBacterium(Specialization spec) {
+    public Bacterium createBacterium() {
         // Создать бактерию
         Bacterium bacterium = new Bacterium(new GTGESprite());
-        bacterium.setSpecialization(spec);
         
         // Сообщить о создании бактерии
         fireDishObjectCreated(bacterium);

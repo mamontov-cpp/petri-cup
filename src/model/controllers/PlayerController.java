@@ -9,7 +9,6 @@ import java.awt.Point;
 import java.util.List;
 import lml.FactoryGiver;
 import model.dishobjects.alive.Bacterium;
-import specialization.Specialization;
 
 /**
  * Контроллер игрока
@@ -27,11 +26,6 @@ public class PlayerController implements Controller {
         
         // Установить текущие координаты мыши как точку назначения
         bacterium.setDestination(mousePosition);
-    }
-
-    @Override
-    public void chooseSpecialization(List<Specialization> availableUpgrades, Bacterium bacterium) {
-        bacterium.setSpecialization(FactoryGiver.getFactory().getGameIO().askForSpecialization(availableUpgrades));
     }
 
     @Override

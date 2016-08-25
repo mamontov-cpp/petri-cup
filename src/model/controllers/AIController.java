@@ -12,7 +12,6 @@ import lml.FactoryGiver;
 import lml.GameApplication;
 import model.Dish;
 import model.dishobjects.alive.Bacterium;
-import specialization.Specialization;
 
 /**
  * Контроллер компьютерных бактерий
@@ -46,12 +45,6 @@ public class AIController implements Controller {
             int throwY = bacterium.getPosition().y + rand.nextInt(GameApplication.screenHeight - 2 * MINIMAL_THROW_DISTANCE) / 2 + MINIMAL_THROW_DISTANCE;
             throwBolid(new Point(throwX, throwY), bacterium);
         }
-    }
-
-    @Override
-    public void chooseSpecialization(List<Specialization> availableUpgrades, Bacterium bacterium) {
-        Random rand = new Random();
-        bacterium.setSpecialization(availableUpgrades.get(rand.nextInt(availableUpgrades.size())));
     }
 
     @Override

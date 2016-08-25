@@ -6,7 +6,6 @@
 
 package model;
 
-import Listeners.AskForSpecializationListener;
 import java.awt.Point;
 import java.util.List;
 import lml.FactoryGiver;
@@ -14,13 +13,11 @@ import model.controllers.*;
 import model.dishobjects.alive.AliveObject;
 import model.dishobjects.DishObject;
 import model.dishobjects.alive.Bacterium;
-import specialization.Specialization;
-import specialization.SpecializationTree;
 
 /**
  * Модель игры
  */
-public class GameModel implements AskForSpecializationListener {
+public class GameModel  {
     
     /**
      * Начальное количество света
@@ -81,7 +78,6 @@ public class GameModel implements AskForSpecializationListener {
      * Начать игру
      */
     public void start() {
-        SpecializationTree.instance.addAskForSpecializationListener(this);
         
         player = FactoryGiver.getFactory().getAliveObjectFactory().createBacterium();
         
@@ -135,13 +131,5 @@ public class GameModel implements AskForSpecializationListener {
      */
     public boolean isPlayer(Bacterium bacterium) {
         return bacterium == player;
-    }
-
-    @Override
-    public void askForSpecialization(List<Specialization> availableUpgrades, Bacterium obj) {
-        if (obj == player)
-            playerController.chooseSpecialization(availableUpgrades, player);
-        else
-            aiController.chooseSpecialization(availableUpgrades, obj);
     }
 }

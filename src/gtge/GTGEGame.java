@@ -17,7 +17,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import lml.GameApplication;
 import lml.GameIO;
-import specialization.Specialization;
 
 /**
  * Мост для GTGE игры
@@ -43,29 +42,6 @@ public class GTGEGame extends GameApplication implements GameIO {
         game.start();
     }
     
-    @Override
-    public Specialization askForSpecialization(List<Specialization> specializations) {
-        int n;
-        do {
-            // Сформировать список названий доступных специализаций
-            Object[] options = new Object[specializations.size()];
-            for (int i = 0; i < specializations.size(); ++i) {
-                options[i] = specializations.get(i).getName();
-            }
-
-            // Запросить у пользователя новую специализацию
-            n = JOptionPane.showOptionDialog(null, "Выберите новую специализацию.", "Выбор специализации.", 
-                    JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-
-            // Если специализация выбрана - вернуть её
-            if (n != JOptionPane.CLOSED_OPTION) {
-                return specializations.get(n);
-            }
-        } while (n == JOptionPane.CLOSED_OPTION);
-        
-        return null;
-    }
-
     @Override
     public Point getMousePosition() {
         Point mousePosition = ge.getMousePosition();

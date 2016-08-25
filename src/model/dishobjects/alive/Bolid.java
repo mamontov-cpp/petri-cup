@@ -27,7 +27,6 @@ public class Bolid extends AliveObject {
     public Bolid(SpriteModel spriteModel, Bacterium parent, int mass) {
         super(spriteModel);
         this.parent = parent;
-        setSpecialization(parent.getSpecialization());
         this.mass = mass;
         
         // После создания нельзя сразу поглотить

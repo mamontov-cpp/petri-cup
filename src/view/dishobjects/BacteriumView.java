@@ -5,35 +5,17 @@
  */
 package view.dishobjects;
 
-import Listeners.DishObjectGrownListener;
-import Listeners.SpecializationChangedListener;
 import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import model.dishobjects.alive.AliveObject;
 import model.dishobjects.alive.Bacterium;
-import specialization.Specialization;
-import view.SizeConverter;
 import view.SpriteView;
 
 /**
  * Представление бактерии
  */
-public class BacteriumView extends AliveObjectView implements SpecializationChangedListener {
+public class BacteriumView extends AliveObjectView {
 
     public BacteriumView(Bacterium obj, SpriteView spriteView) {      
         super(obj, spriteView, Color.GREEN);
-        
-        // Подписаться на событие изменения специализации
-        obj.addSpecializationChangedListener(this);
     }
-
-    @Override
-    public void specializationChanged() {
-        spriteView.setIcon(getAvatarForSpecialization(((Bacterium)getDishObject()).getSpecialization()));
-    }
+    
 }

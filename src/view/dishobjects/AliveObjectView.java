@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import model.dishobjects.alive.AliveObject;
 import model.dishobjects.alive.Bacterium;
-import specialization.Specialization;
 import view.SizeConverter;
 import view.SpriteView;
 
@@ -28,7 +27,7 @@ public class AliveObjectView extends DishObjectView implements DishObjectGrownLi
         super(obj, spriteView, color);
         
         // Задать иконку
-        spriteView.setIcon(getAvatarForSpecialization(obj.getSpecialization()));
+        spriteView.setIcon(getAvatarForSpecialization("primitive plant"));
         
         // Подписаться на событие роста
         obj.addDishObjectGrownListener(this);
@@ -39,9 +38,9 @@ public class AliveObjectView extends DishObjectView implements DishObjectGrownLi
      * @param spec специализация, для которой требуется иконка
      * @return иконка для специализации
      */
-    protected BufferedImage getAvatarForSpecialization(Specialization spec) {
+    protected BufferedImage getAvatarForSpecialization(String s) {
         BufferedImage avatar = null;
-        String path = "resources/avatars/" + spec.getName().toUpperCase() + ".png";
+        String path = "resources/avatars/" + s.toUpperCase() + ".png";
         path = path.replace(' ', '_');
         try {
             avatar = ImageIO.read(new File(path));

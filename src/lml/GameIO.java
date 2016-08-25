@@ -9,19 +9,11 @@ package lml;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.List;
-import specialization.Specialization;
 
 /**
  * Интерфейс входных-выходных данных игры
  */
 public interface GameIO {
-    /**
-     * Запрашивает специализацию из предложенных у пользователя
-     * @param specializations список доступных специализаций
-     * @return выбранную специализацию
-     */
-    public Specialization askForSpecialization(List <Specialization> specializations);
-    
     /**
      * Возвращает позицию мыши на экране
      * @return координаты мыши на поле
