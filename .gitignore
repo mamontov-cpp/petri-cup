@@ -13,3 +13,7 @@ hs_err_pid*
 /nbproject/private/
 /build/
 /dist/
+/iterations/petri-cup-2-001/build/
+/iterations/lib-agar-gtge/nbproject/private/
+/iterations/lib-agar-gtge/build/
+/iterations/lib-agar-gtge/dist/
