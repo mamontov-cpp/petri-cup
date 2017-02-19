@@ -83,7 +83,7 @@ public class GameMath {
      * @param s спрайт
      * @return 
      */
-    public static Point getCenter(com.golden.gamedev.object.Sprite s)  {
+    public static Point getCenter(engine.Sprite s)  {
         return new Point(
             (int)(s.getX() + s.getWidth() / 2), 
             (int)(s.getY() + s.getHeight() / 2)
@@ -96,8 +96,8 @@ public class GameMath {
      * @return пересекаются ли спрайты
      */
     public static boolean collide(
-        com.golden.gamedev.object.Sprite s1,
-        com.golden.gamedev.object.Sprite s2
+        engine.Sprite s1,
+        engine.Sprite s2
     )  {
         Point center1 = GameMath.getCenter(s1);
         Point center2 = GameMath.getCenter(s2);

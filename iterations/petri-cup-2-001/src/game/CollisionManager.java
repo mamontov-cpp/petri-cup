@@ -1,8 +1,8 @@
 package game;
 
-import com.golden.gamedev.object.Sprite;
-import com.golden.gamedev.object.SpriteGroup;
-import com.golden.gamedev.object.collision.BasicCollisionGroup;
+import engine.Sprite;
+import engine.SpriteGroup;
+import engine.BasicCollisionGroup;
 import java.awt.Point;
 
 /**
@@ -65,7 +65,6 @@ public class CollisionManager {
 
         public ObjectToBarrelCollisionGroup(SpriteGroup g1, SpriteGroup g2) {
             setCollisionGroup(g1, g2);
-            pixelPerfectCollision = true;
         }
     
         @Override
@@ -78,7 +77,6 @@ public class CollisionManager {
 
         public ObjectToAgarCollisionGroup(SpriteGroup g1, SpriteGroup g2) {
             setCollisionGroup(g1, g2);
-            pixelPerfectCollision = true;
         }
     
         @Override

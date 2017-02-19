@@ -1,7 +1,7 @@
 package game;
 
-import com.golden.gamedev.object.SpriteGroup;
-import com.golden.gamedev.object.background.ImageBackground;
+import engine.SpriteGroup;
+import engine.ImageBackground;
 import engine.SystemFont;
 import game.controllers.AIController;
 import game.controllers.Controller;
@@ -121,6 +121,7 @@ public class Game extends engine.Game {
             
             bg = new ImageBackground(ImageIO.read(new File("resources/background.jpg")));
             bg.setClip(0, 0, this.dimensions().width, this.dimensions().height);
+            bg.setTotalClip(totalWidth, totalHeight);
 
             spriteGroup.setBackground(bg);            
             spriteGroup.add(playerSprite);
@@ -170,10 +171,10 @@ public class Game extends engine.Game {
 
     @Override
     public void renderInContext(engine.Graphics2D g) {
-        bg.render(g.get());                       
-        agarGroup.render(g.get());
-        spriteGroup.render(g.get());
-        barrelGroup.render(g.get());
+        bg.render(g);                       
+        agarGroup.render(g);
+        spriteGroup.render(g);
+        barrelGroup.render(g);
         fnt.drawString(g, "Agar collected: " + String.valueOf(this.agarCollected), 20, 20);
         if (playerSprite != null)
         {
@@ -231,7 +232,7 @@ public class Game extends engine.Game {
         int generated = 0;
         Random r1 = new Random();
         Random r2 = new Random(); 
-        List<com.golden.gamedev.object.Sprite> l = new ArrayList<>();
+        List<engine.Sprite> l = new ArrayList<>();
         while(generated < quantity) {
             int x = r1.nextInt(radius) - (radius / 2);
             int y = r2.nextInt(radius) - (radius / 2);
@@ -247,17 +248,18 @@ public class Game extends engine.Game {
             } else {
                 y -= player.getY();
             }
-            com.golden.gamedev.object.Sprite s = new com.golden.gamedev.object.Sprite(image, x, y);
+            
+            engine.Sprite s = new engine.Sprite(image, x, y);
             boolean collide = false;
             for (SpriteGroup group : groups) {
-                com.golden.gamedev.object.Sprite[] sprites = group.getSprites();
-                for(com.golden.gamedev.object.Sprite spt : sprites) {
+                List<engine.Sprite> sprites = group.toList();
+                for(engine.Sprite spt : sprites) {
                     if (spt != null) {
                         collide = collide || GameMath.collide(spt, s);
                     }
                 }
             }
-            for (com.golden.gamedev.object.Sprite l1 : l) {
+            for (engine.Sprite l1 : l) {
                 collide = collide || GameMath.collide(l1, s);
             }
            

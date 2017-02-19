@@ -8,6 +8,15 @@ import java.awt.image.BufferedImage;
  */
 public class Sprite extends com.golden.gamedev.object.Sprite {
     
+    
+    public Sprite() {
+        super();
+    }
+    
+    public Sprite(BufferedImage bi, int x, int y) {
+        super(bi, x, y);
+    }
+    
     /**
      * Устанавливает изображение
      * @param bi 
@@ -15,7 +24,16 @@ public class Sprite extends com.golden.gamedev.object.Sprite {
     @Override
     public void setImage(BufferedImage bi) {
         super.setImage(bi);
-    }           
+    }
+    
+    /**
+     * Обновление состояние спрайта
+     * @param elapsed прошедшее время
+     */
+    @Override
+    public void update(long elapsed) {
+        super.update(elapsed);
+    }
     
     /**
      * Рисует спрайт на изображении
@@ -64,6 +82,5 @@ public class Sprite extends com.golden.gamedev.object.Sprite {
     @Override    
     public double getOldY() {
        return super.getOldY();
-    }
-   
+    }   
 }

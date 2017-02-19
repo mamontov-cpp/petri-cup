@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 /**
  * Мост между спрайтом GTGE и интерфейсами модели и представления
  */
-public class Sprite extends com.golden.gamedev.object.Sprite {
+public class Sprite extends engine.Sprite {
 
     /**
      * Цвет объекта

@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/Projects/petri-cup/iterations/petri-cup-2-001/src/game/Sprite.java</file>
+            <file>file:/E:/Projects/petri-cup/iterations/petri-cup-2-001/src/engine/SystemFont.java</file>
+            <file>file:/E:/Projects/petri-cup/iterations/petri-cup-2-001/src/game/CollisionManager.java</file>
+            <file>file:/E:/Projects/petri-cup/iterations/petri-cup-2-001/src/game/controllers/Controller.java</file>
+            <file>file:/E:/Projects/petri-cup/iterations/petri-cup-2-001/src/engine/Game.java</file>
+            <file>file:/E:/Projects/petri-cup/iterations/petri-cup-2-001/src/game/Game.java</file>
+            <file>file:/E:/Projects/petri-cup/iterations/petri-cup-2-001/src/engine/Sprite.java</file>
+            <file>file:/E:/Projects/petri-cup/iterations/petri-cup-2-001/src/engine/Graphics2D.java</file>
+        </group>
     </open-files>
 </project-private>
