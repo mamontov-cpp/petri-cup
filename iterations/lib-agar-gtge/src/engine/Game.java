@@ -38,4 +38,22 @@ public class Game extends  com.golden.gamedev.Game {
     public void renderInContext(engine.Graphics2D g) {
         
     }
+    
+    /**
+     * Получение координаты X курсора мыши в окне
+     * @return 
+     */
+    @Override
+    public int getMouseX() {
+        return super.getMouseX();
+    }
+
+    /**
+     * Получение координаты Y курсора мыши в окне
+     * @return 
+     */    
+    @Override
+    public int getMouseY() {
+        return super.getMouseY();
+    }
 }
