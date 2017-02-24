@@ -1,0 +1,43 @@
+package engine.collision;
+
+/**
+ * Ось для проекции
+ */
+public class Axle {
+    double px;
+    double py;
+    
+    double x;
+    double y;
+    
+    /**
+     * Создает новую ось
+     * @param l прямая
+     * @param px X-координата точки (0,0)
+     * @param py Y-координата точки (0,0)
+     */
+    public Axle(Line l, double px, double py) {
+        if (java.lang.Math.abs(l.k1) < 0.001 && java.lang.Math.abs(l.k2) < 0.001) {
+            x = 1;
+            y = 0;
+        } else {
+            double length = java.lang.Math.sqrt(l.k1 * l.k1 + l.k2 * l.k2);
+            x = l.k1 / length;
+            y = l.k2 / length;
+        }
+        this.px = px;
+        this.py = py;
+    }
+    
+    
+    /**
+     * Проецирует точку на данную ось
+     * @param x X-координата точки
+     * @param y Y-координата точки
+     * @return 
+     */
+    double projectPoint(double x, double y) {
+        return this.x * (x - this.px) + this.y * (y - this.py);
+    }
+    
+}

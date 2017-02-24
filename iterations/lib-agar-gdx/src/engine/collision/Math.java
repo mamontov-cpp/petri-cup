@@ -1,10 +1,9 @@
-
-package engine;
+package engine.collision;
 
 /**
  * Математика для коллизий
  */
-public class CollisionMath {
+public class Math {
     
     /**
      * Пара точек, которые могут образоваться в процессе пересечения
@@ -28,8 +27,8 @@ public class CollisionMath {
      * @param k3
      * @param x0
      * @param y0
-     * @param a
-     * @param b
+     * @param asq
+     * @param bsq
      * @return 
      */
     public static CollisionPointPair getCollisionPointsBetweenLineAndEllipse(
@@ -43,9 +42,9 @@ public class CollisionMath {
     )  {
         double a = asq * asq;
         double b = bsq * bsq;
-        assert( Math.abs(a) > 0.0001 );
-        assert( Math.abs(b) > 0.0001 );
-        assert( (Math.abs(k1) > 0.0001) || (Math.abs(k2) > 0.0001) );
+        assert( java.lang.Math.abs(a) > 0.0001 );
+        assert( java.lang.Math.abs(b) > 0.0001 );
+        assert( (java.lang.Math.abs(k1) > 0.0001) || (java.lang.Math.abs(k2) > 0.0001) );
         double k32 = k3 * k3;
         double k22 = k2 * k2;
         double k12 = k1 * k1;       
@@ -54,10 +53,10 @@ public class CollisionMath {
         double b2 = b * b;
         double a2 = a * a;
         double delimiter = (b*k22+a*k12);
-        double D1 = Math.sqrt(-a*b*k22*y02+(2*a*b*k2*k3-2*a*b*k1*k2*x0)*y0-a*b*k12*x02+2*a*b*k1*k3*x0-a*b*k32+a*b2*k22+a2*b*k12);        
+        double D1 = java.lang.Math.sqrt(-a*b*k22*y02+(2*a*b*k2*k3-2*a*b*k1*k2*x0)*y0-a*b*k12*x02+2*a*b*k1*k3*x0-a*b*k32+a*b2*k22+a2*b*k12);        
         double xr = a*k1*k2*y0-b*k22*x0-a*k1*k3;
         
-        double D2 = Math.sqrt(a)*Math.sqrt(b)*k1*Math.sqrt(-k22*y02-2*k1*k2*x0*y0+2*k2*k3*y0-k12*x02+2*k1*k3*x0-k32+b*k22+a*k12);
+        double D2 = java.lang.Math.sqrt(a*b)*k1*java.lang.Math.sqrt(-k22*y02-2*k1*k2*x0*y0+2*k2*k3*y0-k12*x02+2*k1*k3*x0-k32+b*k22+a*k12);
         double yr = a*k12*y0-b*k1*k2*x0+b*k2*k3;
         
         double xr1 = -(k2 * D1 + xr) / delimiter;
@@ -71,5 +70,28 @@ public class CollisionMath {
         pair.y2 = yr2;
                 
         return pair;
+    }
+    
+    /**
+     * Решает проблему определения пересечения для двух одномерных отрезков
+     * [x11, x12], [x21, x22]
+     * @param x11
+     * @param x12
+     * @param x21
+     * @param x22
+     * @return пересекаются ли отрезки
+     */
+    public static boolean collides1D(double x11, double x12, double x21, double x22) {
+        if (x11 > x12) { 
+            double tmp = x11;
+            x11 = x12;
+            x12 = tmp;
+        }
+        if (x21 > x22) { 
+            double tmp = x21;
+            x21 = x22;
+            x22 = tmp;
+        }
+        return (x21 <= x12) && (x22 >= x11);        
     }
 }

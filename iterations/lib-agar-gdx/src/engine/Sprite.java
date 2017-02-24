@@ -22,4 +22,12 @@ public class Sprite {
 
     }    
     
+    /**
+     * Возвращает фигуру для коллизии
+     * @return 
+     */
+    public engine.collision.Ellipse getCollisionShape() {
+        return new engine.collision.Ellipse(0, 0, 2, 1);        
+    }
+    
 }
