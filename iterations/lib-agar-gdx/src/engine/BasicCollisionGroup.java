@@ -20,8 +20,10 @@ public class BasicCollisionGroup {
         if (m_group1 != null && m_group2 != null) {
             List<Sprite> sprites1 = m_group1.toList();
             List<Sprite> sprites2 = m_group2.toList();
-            for (Sprite s1 : sprites1) {
-                for (Sprite s2 : sprites2) {
+            for (int i = 0; i < sprites1.size(); i++) {
+                for (int j = 0; j < sprites2.size(); j++) {
+                    Sprite s1 = sprites1.get(i);
+                    Sprite s2 = sprites2.get(j);                    
                     if (s1 != s2) {
                         if (s1.getCollisionShape().collidesWith(s2.getCollisionShape())) {
                             this.collided(s1, s2);

@@ -1,5 +1,6 @@
 package engine;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import java.awt.image.BufferedImage;
@@ -27,9 +28,16 @@ public class TextureManager {
     public static Texture imageToTexture(BufferedImage img) {
         Pixmap px = new Pixmap(img.getWidth(), img.getHeight(), Pixmap.Format.RGBA8888);
         Pixmap.setBlending(Pixmap.Blending.None);
+        px.setColor(Color.CYAN);
         for(int i = 0; i < img.getWidth(); i++) {
             for(int j = 0; j < img.getHeight(); j++) {
-                px.drawPixel(j, j, img.getRGB(i, j));
+                int color = img.getRGB(i, j);
+                int red = (color & 0x00ff0000) >> 16;
+                int green = (color & 0x0000ff00) >> 8;
+                int blue = color & 0x000000ff;
+                int alpha = (color >> 24) & 0xff;
+                px.setColor(red / 255.0f, green / 255.0f, blue / 255.0f, alpha / 255.0f);
+                px.drawPixel(i, j);
             }
         }
         return new Texture(px);

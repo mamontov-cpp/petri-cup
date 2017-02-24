@@ -20,5 +20,6 @@ public class PlayerController extends Controller {
     public void update(long elapsedTime) {
         int angle = GameMath.angle(sprite.getPosition(), game.mousePosition());
         sprite.setDirection(angle);
+        super.update(elapsedTime);        
     }
 }

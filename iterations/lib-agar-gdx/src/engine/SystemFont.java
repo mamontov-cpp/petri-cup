@@ -1,5 +1,6 @@
 package engine;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
@@ -17,7 +18,12 @@ public class SystemFont {
      */
     public SystemFont(String fontName, int attrs, int size, java.awt.Color clr) {
         m_font = new BitmapFont();
-        m_font.setColor(new Color(clr.getRGB()));
+        m_font.setColor(new Color(
+                clr.getRed() / 255.0f, 
+                clr.getGreen() / 255.0f,
+                clr.getBlue() / 255.0f,
+                clr.getAlpha() / 255.0f
+        ));
     }
     
     /**
@@ -28,7 +34,15 @@ public class SystemFont {
      * @param y координата Y
      */
     public void drawString(Graphics2D g, String data, int x, int y) {
-        m_font.draw(g.getBatch(), data, x, y);
+        float px = x + (Game.m_current_camera.position.x - Gdx.graphics.getWidth() / 2);
+        float py =  (Gdx.graphics.getHeight() - y) 
+                 + (Game.m_current_camera.position.y - Gdx.graphics.getHeight() / 2);
+        m_font.draw(
+            g.getBatch(), 
+            data, 
+            px, 
+            py
+        );
     }
     
     /**

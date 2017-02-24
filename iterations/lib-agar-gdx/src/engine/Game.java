@@ -55,6 +55,8 @@ public class Game extends ApplicationAdapter {
         
         update((long) (Gdx.graphics.getDeltaTime() * 1000.0));
         
+        m_ctx.getBatch().setProjectionMatrix(m_camera.combined);
+        
         m_ctx.begin();
         renderInContext(m_ctx);
         m_ctx.end();
@@ -81,7 +83,7 @@ public class Game extends ApplicationAdapter {
      * @return 
      */
     public int getMouseX() {
-        return Gdx.input.getX();
+        return Gdx.input.getX() - Gdx.graphics.getWidth() / 2;
     }
 
     /**
@@ -89,7 +91,7 @@ public class Game extends ApplicationAdapter {
      * @return 
      */    
     public int getMouseY() {
-        return Gdx.input.getY();
+        return Gdx.input.getY() - Gdx.graphics.getHeight() / 2;
     }
     
     /**

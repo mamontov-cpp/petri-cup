@@ -52,7 +52,7 @@ public class Game extends engine.Game {
     /**
      * Требуемое число агара
      */
-    private final int requiredAgarQuantity = 200;
+    private final int requiredAgarQuantity = 1;
     /**
      * Спрайт игрока
      */
@@ -106,6 +106,7 @@ public class Game extends engine.Game {
             playerSprite.setIcon(playerImage);
             playerSprite.setPosition(new Point(320, 240));
 
+            /*
             Random r = new Random();
             for(int i = 0; i < 3; i++)
             {
@@ -117,6 +118,7 @@ public class Game extends engine.Game {
                 spriteGroup.add(botSprite);
                 controllers.add(new AIController(this, botSprite, playerSprite));
             }
+            */
             
             
             bg = new ImageBackground(ImageIO.read(new File("resources/background.jpg")));
@@ -128,8 +130,8 @@ public class Game extends engine.Game {
             
             controllers.add(new PlayerController(this, playerSprite));
             SpriteGroup[] groupsForBarrel = { spriteGroup };
-            this.spawnSpritesAroundPlayer(barrelImage, playerSprite, 2000, 20, barrelGroup, groupsForBarrel);
-            barrelGroup.setBackground(bg);
+            //this.spawnSpritesAroundPlayer(barrelImage, playerSprite, 2000, 20, barrelGroup, groupsForBarrel);
+            //barrelGroup.setBackground(bg);
             
             agarGroup.setBackground(bg);
             this.trySpawnAgar();
@@ -206,7 +208,7 @@ public class Game extends engine.Game {
      */
     private void trySpawnAgar() {
         lastRespawnTime = System.nanoTime();
-        if (agarGroup.getSprites().length < this.requiredAgarQuantity) {
+        if (agarGroup.toList().size() < this.requiredAgarQuantity) {
             SpriteGroup[] groupsForAgar = { spriteGroup, barrelGroup };
             this.spawnSpritesAroundPlayer(agarImage, playerSprite, 1000, 20, agarGroup, groupsForAgar);                
         }        
@@ -274,9 +276,9 @@ public class Game extends engine.Game {
     /**
      * Полная ширина поля
      */
-    public static int totalWidth = 6000;
+    public static int totalWidth = 2000;
     /**
      * Полная высота поля
      */
-    public static int totalHeight = 6000;
+    public static int totalHeight = 2000;
 }

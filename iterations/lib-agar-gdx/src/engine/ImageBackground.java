@@ -81,7 +81,7 @@ public class ImageBackground {
             x = totalWidth - viewportWidth / 2;
         }
         if ((y + viewportHeight / 2) > totalHeight) {
-            x = totalHeight - viewportHeight / 2;
+            y = totalHeight - viewportHeight / 2;
         }
         
         Game.m_current_camera.position.set(x, y, 0);

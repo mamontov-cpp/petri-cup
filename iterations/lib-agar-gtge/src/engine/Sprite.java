@@ -84,5 +84,24 @@ public class Sprite extends com.golden.gamedev.object.Sprite {
        return super.getOldY();
     }  
     
+    @Override
+    public int getWidth() {
+        return super.getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return super.getHeight();
+    }
+    
+    @Override
+    public double getHorizontalSpeed() {
+        return super.getHorizontalSpeed();
+    }
+
+    @Override
+    public double getVerticalSpeed() {
+        return super.getVerticalSpeed();
+    }
     
 }

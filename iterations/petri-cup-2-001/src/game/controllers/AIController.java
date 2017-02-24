@@ -30,6 +30,7 @@ public class AIController extends Controller {
             int angle = GameMath.angle(sprite.getPosition(), player.getPosition());
             sprite.setDirection(angle);
         }
+        super.update(elapsedTime);
     }
     /**
      * Игрок
