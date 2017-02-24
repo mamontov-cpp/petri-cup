@@ -22,6 +22,13 @@ public class Ellipse {
      */
     public double heightRadius;
     
+    /**
+     * Конструирует новый эллипс
+     * @param x0 X-координата центра
+     * @param y0 Y-координата центра
+     * @param wr горизонтальный радиус эллипса 
+     * @param hr вертикальный радиус эллипса
+     */
     public Ellipse(double x0, double y0, double wr, double hr) {
         this.x0 = x0;
         this.y0 = y0;
@@ -48,7 +55,8 @@ public class Ellipse {
     
     
     /**
-     * Проверяет, что два эллипса пересекаются. 
+     * Проверяет, что два эллипса пересекаются. Это очень медленный и затратный 
+     * способ, который не стоит использовать для быстрых вычислений.
      * @param o другой элипс
      * @return пересекаются ли?
      */
@@ -58,7 +66,7 @@ public class Ellipse {
         Math.CollisionPointPair myPair = this.getIntersectionPoints(l);
         Math.CollisionPointPair secondPair = this.getIntersectionPoints(l);
         
-        // Получить ось и спроецировать все пары на неё.
+        // Получить ось и спроецировать все пары точек пересечения на неё.
         Axle a = new Axle(l, this.x0, this.y0);
         double x11 = a.projectPoint(myPair.x1, myPair.y1);
         double x12 = a.projectPoint(myPair.x2, myPair.y2);
@@ -72,9 +80,9 @@ public class Ellipse {
     /**
      * Использует некоторые эвристики, для того, чтобы проверить, 
      * что два эллипса пересекаютс. Эти эвристики позволяют считать сложным 
-     * способом, лишь в довольно ограниченным списке случаев, что 
+     * способом, лишь в довольно ограниченном списке случаев, что 
      * должно дать ускорение программы.
-     * @param o
+     * @param o другой эллипса
      * @return пересекаются ли?
      */
     public boolean collidesWith(Ellipse o) {

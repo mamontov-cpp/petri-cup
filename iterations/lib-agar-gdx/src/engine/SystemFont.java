@@ -46,7 +46,7 @@ public class SystemFont {
     }
     
     /**
-     * A font
+     * Шрифт по умолчанию из GDX
      */
     BitmapFont m_font;
 }

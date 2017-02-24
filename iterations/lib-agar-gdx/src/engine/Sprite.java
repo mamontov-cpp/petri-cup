@@ -39,7 +39,7 @@ public class Sprite {
         m_texture = TextureManager.getTexture(bi);
         m_shape = new engine.collision.Ellipse(
                 m_x +  m_texture.getWidth() / 2, 
-                m_y +  m_texture.getHeight() / 2, 
+                m_y -  m_texture.getHeight() / 2, 
                 m_texture.getWidth() / 2, 
                 m_texture.getHeight() / 2
         );        
@@ -51,7 +51,7 @@ public class Sprite {
      */
     public void update(long elapsed) {
         double nx = m_x + m_horizontal_speed * elapsed;
-        double ny = m_y - m_vertical_speed * elapsed;
+        double ny = m_y + m_vertical_speed * elapsed;
         
         m_old_x = m_x;
         m_old_y = m_y;
@@ -60,7 +60,7 @@ public class Sprite {
         m_y = ny;
         
         m_shape.x0 = m_x +  m_texture.getWidth() / 2;
-        m_shape.y0 = m_y +  m_texture.getHeight() / 2;
+        m_shape.y0 = m_y -  m_texture.getHeight() / 2;
     }
     
     /**
@@ -72,7 +72,7 @@ public class Sprite {
             g.getBatch().draw(
                 m_texture, 
                 (float)m_x, 
-                (float)(m_y + m_texture.getHeight())
+                (float)(m_y - m_texture.getHeight())
             );
  
         }
@@ -93,7 +93,7 @@ public class Sprite {
      */
     public void setY(double y) {
         m_y = y;
-        m_shape.y0 = y + m_texture.getHeight() / 2;
+        m_shape.y0 = y - m_texture.getHeight() / 2;
     }
 
 
@@ -163,7 +163,7 @@ public class Sprite {
 
     /**
      * Возвращает ширину спрайта
-     * @return 
+     * @return ширина спрайта
      */
     public int getWidth() {
         return m_texture.getWidth();
@@ -171,7 +171,7 @@ public class Sprite {
 
     /**
      * Возвращает высоту спрайта
-     * @return 
+     * @return высота спрайта
      */
     public int getHeight() {
         return m_texture.getHeight();
@@ -191,6 +191,26 @@ public class Sprite {
      */
     public double getVerticalSpeed() {
         return m_vertical_speed;
+    }
+    
+    /**
+     * Останавливает спрайт при выходе за пределы прямоугольника [0;0;totalWidth;totalHeight]
+     * @param totalWidth макс. ширина
+     * @param totalHeight макс. высота
+     */
+    public void stopOnGoingOutOfBounds(double totalWidth, double totalHeight) {            
+        if (this.getX() <= 0 && this.getHorizontalSpeed() < 0) {
+            this.setHorizontalSpeed(0);
+        }
+        if (this.getX() + this.getWidth() >= totalWidth && this.getHorizontalSpeed() > 0) {
+            this.setHorizontalSpeed(0);
+        }
+        if (this.getY() - this.getHeight() <= 0 && this.getVerticalSpeed() < 0) {
+            this.setVerticalSpeed(0);
+        }
+        if (this.getY() >= totalHeight && this.getVerticalSpeed() > 0) {
+            this.setVerticalSpeed(0);
+        }
     }
     
     

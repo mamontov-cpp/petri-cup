@@ -4,10 +4,22 @@ package engine.collision;
  * Ось для проекции
  */
 public class Axle {
+    /**
+     * X-координата опорной точки (0,0)
+     */
     double px;
+    /**
+     * Y-координата опорной точки (0,0)
+     */
     double py;
     
+    /**
+     * X-координата вектора оси
+     */
     double x;
+    /**
+     * Y-координата вектора оси
+     */
     double y;
     
     /**
@@ -34,7 +46,7 @@ public class Axle {
      * Проецирует точку на данную ось
      * @param x X-координата точки
      * @param y Y-координата точки
-     * @return 
+     * @return значение точки
      */
     double projectPoint(double x, double y) {
         return this.x * (x - this.px) + this.y * (y - this.py);

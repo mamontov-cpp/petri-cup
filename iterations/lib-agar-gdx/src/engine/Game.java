@@ -64,7 +64,7 @@ public class Game extends ApplicationAdapter {
         
     /**
      * Отрисовывет состояние игры
-     * @param g 
+     * @param g контекст
      */    
     public void renderInContext(engine.Graphics2D g) {
         
@@ -80,7 +80,7 @@ public class Game extends ApplicationAdapter {
     
     /**
      * Получение координаты X курсора мыши в окне
-     * @return 
+     * @return координата X курсора в окне
      */
     public int getMouseX() {
         return Gdx.input.getX() - Gdx.graphics.getWidth() / 2;
@@ -88,10 +88,10 @@ public class Game extends ApplicationAdapter {
 
     /**
      * Получение координаты Y курсора мыши в окне
-     * @return 
+     * @return координата Y курсора в окне 
      */    
     public int getMouseY() {
-        return Gdx.input.getY() - Gdx.graphics.getHeight() / 2;
+        return (Gdx.graphics.getHeight() / 2 - Gdx.input.getY());
     }
     
     /**
@@ -100,7 +100,8 @@ public class Game extends ApplicationAdapter {
     OrthographicCamera m_camera;
     
     /**
-     * Глобальная камера игры для работы с позициями
+     * Глобальная камера игры для того, чтобы фон мог получить текущее смещение 
+     * камеры
      */
     static Camera m_current_camera;
     
@@ -110,7 +111,7 @@ public class Game extends ApplicationAdapter {
     SpriteBatch m_batch;
     
     /**
-     * Контекст
+     * Псевдо-графический контекст. В данном случае - контейнер длв Batch
      */
     Graphics2D  m_ctx;
 }

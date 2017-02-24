@@ -9,6 +9,9 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
  */
 public class GameLoader {
 
+    /**
+     * Инициализация загрузчика игрового экрана
+     */
     public GameLoader() {
         m_config = new LwjglApplicationConfiguration();
         m_app = null;
@@ -30,7 +33,7 @@ public class GameLoader {
     }
     
     /**
-     * Запускает игру, блокируя дальнейшее исполнение
+     * Запускает игру, блокируя дальнейшее исполнение потока
      */
     public void start() {
         m_app = new LwjglApplication(m_game, m_config);
@@ -43,7 +46,7 @@ public class GameLoader {
     LwjglApplicationConfiguration m_config;
     
     /**
-     * Приложение
+     * Приложение для запуска
      */
     LwjglApplication m_app;
     

@@ -56,7 +56,7 @@ public class CollisionManager {
      * Проверяет коллизии для менеджера
      */
     public void checkCollision() {
-        //o2b.checkCollision();
+        o2b.checkCollision();
         o2a.checkCollision();
     }
     

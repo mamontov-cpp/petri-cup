@@ -29,7 +29,7 @@ public class Math {
      * @param y0
      * @param asq
      * @param bsq
-     * @return 
+     * @return пара точек - результат пересечения
      */
     public static CollisionPointPair getCollisionPointsBetweenLineAndEllipse(
         double k1,

@@ -13,17 +13,23 @@ import java.util.List;
 public class TextureManager {
     
     /**
-     * Сущность для менеджера
+     * Пара - текстура и изображение для поиска соответствий
      */
     static class Entry {
+        /**
+         * Текстура
+         */
         Texture m_texture;
+        /**
+         * Изображение
+         */
         BufferedImage m_image;
     }
     
     /**
      * Преборазует изображение в текстуру
-     * @param img
-     * @return 
+     * @param img иходное изображениек
+     * @return текстура
      */
     public static Texture imageToTexture(BufferedImage img) {
         Pixmap px = new Pixmap(img.getWidth(), img.getHeight(), Pixmap.Format.RGBA8888);
@@ -44,7 +50,7 @@ public class TextureManager {
     }
     
     /**
-     * Получает текстуру для изображения
+     * Получает текстуру для изображения, стараясь по возможности кэшировать её
      * @param img изображение
      * @return текстура
      */
@@ -66,6 +72,9 @@ public class TextureManager {
     }
     
     
+    /**
+     * Освобождает набор текстур, загруженных в систему
+     */
     public static void disposeTextures() {
         if (m_entries != null) {
             m_entries.stream().forEach((m_entry) -> {

@@ -34,19 +34,18 @@ public class ImageBackground {
     
     /**
      * Устанавливает глобальные пределы смещения камеры
-     * @param totalWidth
-     * @param totalHeight 
+     * @param totalWidth ширина поля
+     * @param totalHeight высота поля
      */
     public void setTotalClip(int totalWidth, int totalHeight) {
         this.totalWidth = totalWidth;
         this.totalHeight = totalHeight;
         m_region = new TextureRegion(m_texture);
-        m_region.setRegion(0, 0, totalWidth, totalHeight);
     }
     
     /**
      * Обновление состояния фона
-     * @param elapsed 
+     * @param elapsed прошедшее время в мс
      */
 
     public void update(long elapsed) {
@@ -55,17 +54,17 @@ public class ImageBackground {
     
     /**
      * Отрисовка фона
-     * @param g 
+     * @param g графический контекст
      */
     public void render(Graphics2D g) {
        if (m_region != null) {
-           g.getBatch().draw(m_region, 0, 0);
+           g.getBatch().draw(m_region, 0, 0, this.totalWidth, this.totalHeight);
        }
     }
     
     /**
      * Устанавливает центра фона в определенную позицию
-     * @param s 
+     * @param s спрайт, в центр которого устанавливается позиция камеры
      */
     public void setToCenter(Sprite s) {
         Point center = s.getCenter();
@@ -83,13 +82,12 @@ public class ImageBackground {
         if ((y + viewportHeight / 2) > totalHeight) {
             y = totalHeight - viewportHeight / 2;
         }
-        
         Game.m_current_camera.position.set(x, y, 0);
     }
     
     /**
      * Возвращает позицию X смещения фона
-     * @return 
+     * @return X-координата
      */
     public double getX() {
         return Game.m_current_camera.position.x;
@@ -97,7 +95,7 @@ public class ImageBackground {
 
     /**
      * Возвращает позицию Y смещения фона
-     * @return 
+     * @return Y-координата
      */    
     public double getY() {
         return Game.m_current_camera.position.y;

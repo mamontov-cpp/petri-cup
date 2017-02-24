@@ -63,7 +63,7 @@ public class ImageBackground extends com.golden.gamedev.object.background.ImageB
      */
     @Override
     public double getX() {
-        return 0;
+        return super.getX();
     }
 
     /**
@@ -72,6 +72,6 @@ public class ImageBackground extends com.golden.gamedev.object.background.ImageB
      */    
     @Override
     public double getY() {
-        return 0;
+        return super.getY();
     }
 }

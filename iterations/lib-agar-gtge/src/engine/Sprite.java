@@ -104,4 +104,19 @@ public class Sprite extends com.golden.gamedev.object.Sprite {
         return super.getVerticalSpeed();
     }
     
+    /**
+     * Останавливает спрайт при выходе за пределы прямоугольника [0;0;totalWidth;totalHeight]
+     * @param totalWidth макс. ширина
+     * @param totalHeight макс. высота
+     */
+    public void stopOnGoingOutOfBounds(double totalWidth, double totalHeight) {
+        if (this.getX() <= 0 && this.getHorizontalSpeed() < 0)
+            this.setHorizontalSpeed(0);
+        if (this.getX() + this.getWidth() >= totalWidth && this.getHorizontalSpeed() > 0)
+            this.setHorizontalSpeed(0);
+        if (this.getY() <= 0 && this.getVerticalSpeed() < 0)
+            this.setVerticalSpeed(0);
+        if (this.getY() + this.getHeight() >= totalHeight && this.getVerticalSpeed() > 0)
+            this.setVerticalSpeed(0);
+    }
 }

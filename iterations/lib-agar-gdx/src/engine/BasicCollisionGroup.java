@@ -3,11 +3,11 @@ package engine;
 import java.util.List;
 
 /**
- * Группа для поиска пересечений
+ * Группа для поиска пересечений между спрайтами
  */
 public class BasicCollisionGroup {
     /**
-     * Инициализация коллизий
+     * Конструирует новую группу
      */
     public BasicCollisionGroup() {
 
@@ -34,6 +34,11 @@ public class BasicCollisionGroup {
         }
     }
     
+    /**
+     * Устанавливает группы для происка пересечений 
+     * @param s1 первая группа
+     * @param s2 вторая группа
+     */
     public void setCollisionGroup(SpriteGroup s1, SpriteGroup s2) {
         m_group1 = s1;
         m_group2 = s2;
@@ -42,8 +47,8 @@ public class BasicCollisionGroup {
     
     /**
      * Обрабатывает коллизии.
-     * @param first
-     * @param second 
+     * @param first первый спрайт
+     * @param second второй спрайт
      */
     public void collided(Sprite first, Sprite second) {
         

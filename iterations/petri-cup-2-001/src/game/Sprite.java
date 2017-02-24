@@ -109,5 +109,5 @@ public class Sprite extends engine.Sprite {
 
     public int getDirection() {
         return angle;
-    }
+    } 
 }
