@@ -82,5 +82,7 @@ public class Sprite extends com.golden.gamedev.object.Sprite {
     @Override    
     public double getOldY() {
        return super.getOldY();
-    }   
+    }  
+    
+    
 }

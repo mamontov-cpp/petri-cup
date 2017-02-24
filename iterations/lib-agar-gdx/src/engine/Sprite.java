@@ -1,6 +1,8 @@
 
 package engine;
 
+import java.awt.Point;
+
 /**
  * Класс спрайта
  */
@@ -20,7 +22,11 @@ public class Sprite {
      */
     public void render(Graphics2D g) {
 
-    }    
+    } 
+    
+    public Point getCenter() {
+        return new Point(0, 0);
+    }
     
     /**
      * Возвращает фигуру для коллизии

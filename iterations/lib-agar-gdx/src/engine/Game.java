@@ -2,6 +2,7 @@ package engine;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,7 +19,9 @@ public class Game extends ApplicationAdapter {
     @Override
     public void create () {
         m_camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        m_camera.position.set(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, 0);
         m_camera.update();
+        m_current_camera = m_camera;
         
         m_batch = new SpriteBatch();    
         m_ctx = new engine.Graphics2D(m_batch);
@@ -70,7 +73,7 @@ public class Game extends ApplicationAdapter {
      */
     @Override
     public void dispose () {
-
+           TextureManager.disposeTextures();
     }
     
     /**
@@ -93,6 +96,11 @@ public class Game extends ApplicationAdapter {
      * Камера
      */
     OrthographicCamera m_camera;
+    
+    /**
+     * Глобальная камера игры для работы с позициями
+     */
+    static Camera m_current_camera;
     
     /**
      * Batch для рисования
