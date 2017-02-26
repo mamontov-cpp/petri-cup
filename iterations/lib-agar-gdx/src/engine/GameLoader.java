@@ -8,7 +8,6 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
  * Загрузчик игрового экрана
  */
 public class GameLoader {
-
     /**
      * Инициализация загрузчика игрового экрана
      */

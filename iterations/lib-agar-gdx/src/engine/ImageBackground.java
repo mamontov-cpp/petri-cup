@@ -47,7 +47,6 @@ public class ImageBackground {
      * Обновление состояния фона
      * @param elapsed прошедшее время в мс
      */
-
     public void update(long elapsed) {
 
     }
