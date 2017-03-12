@@ -36,7 +36,7 @@ public class CollisionTest {
             Assert.assertEquals(pair.x1, -1.0, 0.001);
             Assert.assertEquals(pair.y1, 0.0, 0.001);
             Assert.assertEquals(pair.x2, 1.0, 0.001);
-            Assert.assertEquals(pair.y2, 0.0, 0.001);            
+            Assert.assertEquals(pair.y2, 1.0, 0.001);            
         }
         {
             double k1 = 1;
