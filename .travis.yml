@@ -4,3 +4,4 @@ jdk:
 script:
   - cd iterations/lib-agar-gdx
   - ant jar 
+  - ant test
