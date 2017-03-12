@@ -1,3 +1,5 @@
+![Build status from Travis](https://travis-ci.org/mamontov-cpp/petri-cup.svg?branch=master)
+
 # petri-cup
 Упрощенная версия игры "Чашка Петри", основанная на реализации Сперцян К.
 
